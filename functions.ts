@@ -26,3 +26,40 @@ let greetAPerson = (name: string = "stranger") => {
 };
 greetAPerson();
 greetAPerson("Sofia");
+
+// IV) Return Type Annotations
+const calcAdd = (x: number, y: number): number => x + y;
+console.log(calcAdd(3, 7));
+
+// The following function return number or string
+const rando = (num: number) => {
+  if (Math.random() < 0.5) {
+    return num.toString();
+  }
+  return num;
+};
+
+// V) Anonymous Function Contextual Typing
+const pets = ["dog", "pig", "cat", "bird"];
+pets.map((pet) => {
+  // return pet.toFixed(); //Error
+  pet.toUpperCase();
+});
+
+// VI) type: void (a return type for functions)
+// A function that doesn't return anything
+const printTwice = (msg: string): void => {
+  console.log(msg);
+  console.log(msg);
+};
+
+// type: never
+// The type of the following function is never
+const makeError = (msg: string) => {
+  throw new Error(msg);
+};
+
+// The
+function throwError(msg: string): never {
+  throw new Error(msg);
+}

@@ -23,3 +23,6 @@ var greetAPerson = function (name) {
 };
 greetAPerson();
 greetAPerson("Sofia");
+// IV) Return Type Annotations
+var calcAdd = function (x, y) { return x + y; };
+console.log(calcAdd(3, 7));
