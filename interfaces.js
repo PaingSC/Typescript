@@ -7,7 +7,7 @@ var personA = {
     nickname: "Pinky", // optional
 };
 personA.nickname = "Pigy";
-personA.id = 382; // Error: readonly property
+// personA.id = 382; // Error: readonly property
 var personB = {
     id: 2384774,
     first: "Hnin",
@@ -19,9 +19,10 @@ var shoes = {
     name: "Blue Suede Shoes",
     price: 100,
     applyDiscount: function (amount) {
-        var newPrice = this.proce * (1 - amount);
-        this.price = newPrice;
-        return this.price;
+        // const newPrice = this.proce * (1 - amount);
+        // this.price = newPrice;
+        // return this.price;
+        return this.price * (1 - amount);
     },
 };
 console.log(shoes.applyDiscount(0.4));

@@ -30,7 +30,7 @@ let personA: Person = {
 };
 
 personA.nickname = "Pigy";
-personA.id = 382; // Error: readonly property
+// personA.id = 382; // Error: readonly property
 
 let personB: Person = {
   id: 2384774,
@@ -51,10 +51,67 @@ const shoes: Product = {
   name: "Blue Suede Shoes",
   price: 100,
   applyDiscount(amount: number) {
-    const newPrice = this.proce * (1 - amount);
-    this.price = newPrice;
-    return this.price;
+    // const newPrice = this.price * (1 - amount);
+    // this.price = newPrice;
+    // return this.price;
+    return this.price * (1 - amount);
   },
 };
 
 console.log(shoes.applyDiscount(0.4));
+
+// Re-opening Interfaces
+// a) Difining type: interface Dog
+interface Dog {
+  name: string;
+  age: number;
+}
+
+// b) Re-opening interface Dog (Not overwriting or redeclaring)
+interface Dog {
+  breed: string;
+  bark(): string;
+}
+
+const elton: Dog = {
+  name: "Elton",
+  age: 0.5,
+  breed: "Australian Shepherd",
+  bark() {
+    return "Woof Woof!";
+  },
+};
+
+// Extending Interfaces (Inheritance)
+interface ServiceDog extends Dog {
+  job: "drug sniffer" | "bomb" | "guide dog";
+}
+
+const chewy: ServiceDog = {
+  name: "Chewy",
+  age: 4.5,
+  breed: "Lab",
+  bark() {
+    return "Bark!";
+  },
+  job: "guide dog",
+};
+
+// Interface Multiple Inheritance
+interface Employee {
+  email: string;
+}
+
+interface Engineer extends Person, Employee {
+  level: string;
+  languages: string[];
+}
+
+const paingSoe: Engineer = {
+  id: 775639,
+  first: "Paing",
+  last: "Chit",
+  level: "mid-level",
+  email: "paingchit@gmail.com",
+  languages: ["Myanmar", "English", "Japanese"],
+};
